@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+@model LoginModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>系统登录</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="~/lib/admin-lte/dist/css/AdminLTE.min.css">
+   
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="http://fonour.cnblogs.com" target="_blank"><b>Fonour</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">权限管理系统</p>
+            <input id="errorInfo" type="hidden" value="@ViewBag.ErrorInfo" />
+            <form asp-controller="Login" asp-action="Index" method="post" onsubmit="onSubmit()">
+                <div class="form-group has-feedback">
+                    <input asp-for="UserName" type="text" class="form-control" placeholder="用户名">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="密码">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        @*<div class="checkbox icheck">
+                            <label>
+                                <input asp-for="RememberMe" type="checkbox"> 记住我
+                            </label>
+                        </div>*@
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button id="btnLogin" type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script>
+        $(function () {
+    
+
+            //显示服务端验证的错误信息
+            if ($("#errorInfo").val()) {
+                layer.tips($("#errorInfo").val(), "#btnLogin");
+            };
+
+   
+        });
+        //根据是否勾选记住我记录或清除cookie
+        function onSubmit() {
+            if ($("#RememberMe:checked").length > 0) {//设置cookie
+                $.cookie("fonour_userName", $("#UserName").val());
+                $.cookie("fonour_password", $("#Password").val());
+            } else {//清除cookie
+                $.removeCookie("fonour_userName");
+                $.removeCookie("fonour_password");
+            }
+        };
+    </script>
+</body>
+</html>
