@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using PuCore.EntityFramework.EntityFramework;
+using System.Linq;
 
 namespace PuCore.EntityFramework.Repositories
 {
@@ -24,7 +25,7 @@ namespace PuCore.EntityFramework.Repositories
         /// <returns>存在返回用户实体，否则返回NULL</returns>
         public User CheckUser(string userName, string password)
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<User>().FirstOrDefault(it => it.UserName == userName && it.Password == password);
         }
 
         /// <summary>

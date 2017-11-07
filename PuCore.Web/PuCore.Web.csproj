@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PuCore.Application\PuCore.Application.csproj" />
     <ProjectReference Include="..\PuCore.EntityFramework\PuCore.EntityFramework.csproj" />
     <ProjectReference Include="..\PuCore.Utility\PuCore.Utility.csproj" />
   </ItemGroup>

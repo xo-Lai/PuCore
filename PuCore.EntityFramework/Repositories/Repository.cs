@@ -13,7 +13,7 @@ namespace PuCore.EntityFramework.Repositories
     /// </summary>
     /// <typeparam name="TEntity">实体类型</typeparam>
     /// <typeparam name="TPrimaryKey">主键类型</typeparam>
-    public abstract class RepositoryBase<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey> where TEntity : Entity<TPrimaryKey>
+    public abstract class Repository<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey> where TEntity : Entity<TPrimaryKey>
     {
         //定义数据访问上下文对象
         protected readonly PuCoreDbContext _dbContext;
@@ -22,7 +22,7 @@ namespace PuCore.EntityFramework.Repositories
         /// 通过构造函数注入得到数据上下文对象实例
         /// </summary>
         /// <param name="dbContext"></param>
-        public RepositoryBase(PuCoreDbContext dbContext)
+        public Repository(PuCoreDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -199,7 +199,7 @@ namespace PuCore.EntityFramework.Repositories
     /// 主键为int类型的仓储基类
     /// </summary>
     /// <typeparam name="TEntity">实体类型</typeparam>
-    public abstract class RepositoryBase<TEntity> : RepositoryBase<TEntity, int> where TEntity : Entity
+    public abstract class RepositoryBase<TEntity> : Repository<TEntity, int> where TEntity : Entity
     {
         public RepositoryBase(PuCoreDbContext dbContext) : base(dbContext)
         {
