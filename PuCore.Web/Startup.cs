@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PuCore.EntityFramework.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using PuCore.Utility.config;
+using PuCore.Utility.Config;
 using PuCore.Application.UserApp;
 using PuCore.Domain.IRepositories;
 using PuCore.EntityFramework.Repositories;
@@ -36,6 +36,9 @@ namespace PuCore.Web
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserAppService, UserAppService>();
 
+            //redis  http://www.cnblogs.com/savorboard/p/5592948.html
+            services.AddDistributedRedisCache(o => o.Configuration = AppConfig.RedisConnection);
+            services.AddSession();
 
             services.AddMvc();
         }

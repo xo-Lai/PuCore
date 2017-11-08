@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PuCore.Application.UserApp;
 using PuCore.Web.Models;
+using PuCore.Redis;
+using PuCore.Utility.Config;
 
 namespace PuCore.Web.Controllers
 {

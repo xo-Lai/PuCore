@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace PuCore.Utility.config
+namespace PuCore.Utility.Config
 {
     public class ConfigurationManager
     {

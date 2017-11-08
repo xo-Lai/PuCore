@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PuCore.Domain.Entities;
-using PuCore.Utility.config;
+using PuCore.Utility.Config;
 using System;
 using System.Linq;
 
