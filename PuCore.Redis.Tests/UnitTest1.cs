@@ -9,7 +9,7 @@ namespace PuCore.Redis.Tests
         [Fact]
         public async Task StringSetAsync_TestsAsync()
         {
-            RedisHelper redisHelper = new RedisHelper();
+            RedisHelper redisHelper = new RedisHelper(1, "127.0.0.1:6379,allowAdmin=true");
             string a = "abc";
 
             await redisHelper.StringSetAsync("test", a);
