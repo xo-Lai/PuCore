@@ -11,7 +11,6 @@ namespace PuCore.Redis.Tests
         {
             RedisHelper redisHelper = new RedisHelper(1, "127.0.0.1:6379,allowAdmin=true");
             string a = "abc";
-
             await redisHelper.StringSetAsync("test", a);
             var b = await redisHelper.StringGetAsync("test");
 
