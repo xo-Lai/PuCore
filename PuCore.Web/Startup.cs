@@ -48,6 +48,7 @@ namespace PuCore.Web
         {
             //注册Serilog日志框架
             loggerFactory.AddSerilog();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
